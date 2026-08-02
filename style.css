@@ -1,12 +1,13 @@
-/* ESTILOS AESTHETIC DE DOS COLUMNAS - DISEÑO ÚNICO PARA NAIMA */
+/* ESTILOS AESTHETIC DE DOS COLUMNAS - DISEÑO ÉPICO Y LUMINOSO PARA NAIMA */
 :root {
-    --bg-gradient: linear-gradient(135deg, #fdf4f8 0%, #fae8ff 50%, #f3e8ff 100%);
+    --bg-gradient: linear-gradient(135deg, #ffe4e6 0%, #fae8ff 35%, #f3e8ff 70%, #ede9fe 100%);
     --rosa-pastel: #ec4899;
+    --rosa-suave: #f472b6;
     --lila-principal: #9333ea;
     --lila-claro: #c084fc;
-    --texto-color: #374151;
-    --card-bg: rgba(255, 255, 255, 0.9);
-    --sombra-aesthetic: 0 15px 35px rgba(147, 51, 234, 0.1);
+    --texto-color: #2d3748;
+    --card-bg: rgba(255, 255, 255, 0.96);
+    --sombra-aesthetic: 0 20px 45px rgba(236, 72, 153, 0.2);
 }
 
 * {
@@ -17,102 +18,219 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
+    font-style: italic; /* Letra en cursiva general */
     background: var(--bg-gradient);
+    background-attachment: fixed;
     color: var(--texto-color);
     min-height: 100vh;
-    padding: 20px;
+    padding: 25px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* EFECTO DE LUZ INTERACTIVA QUE SIGUE EL MOUSE */
+.mouse-glow {
+    position: fixed;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(244, 114, 182, 0.28) 0%, rgba(217, 70, 239, 0.1) 50%, transparent 80%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+    z-index: 0;
+}
+
+/* ESTELA DE FLORES QUE SIGUEN EL MOUSE */
+.cursor-flower {
+    position: fixed;
+    font-size: 1.4rem;
+    pointer-events: none;
+    animation: fadeCursorFlower 0.9s forwards linear;
+    z-index: 999;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes fadeCursorFlower {
+    0% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -80px) scale(0.3) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* ==========================================
+   FONDO DE PARTÍCULAS Y LLUVIA MASIVA DE FLORES
+   ========================================== */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(244, 114, 182, 0.6);
+    border-radius: 50%;
+    animation: floatParticle 7s infinite ease-in-out;
+}
+
+@keyframes floatParticle {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-50px) scale(1.4);
+        opacity: 0.9;
+    }
+}
+
+.falling-flower {
+    position: absolute;
+    top: -10%;
+    font-size: 1.9rem;
+    animation: fallFlower linear infinite;
+    opacity: 0.95;
+    user-select: none;
+    filter: drop-shadow(0 4px 10px rgba(236, 72, 153, 0.35));
+}
+
+@keyframes fallFlower {
+    0% {
+        transform: translateY(-30px) rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg) translateX(90px);
+        opacity: 0;
+    }
 }
 
 /* DISTRIBUCIÓN DE DOS COLUMNAS (DASHBOARD LAYOUT) */
 .layout-dashboard {
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 30px;
+    grid-template-columns: 340px 1fr;
+    gap: 35px;
     align-items: start;
+    position: relative;
+    z-index: 1;
 }
 
-/* COLUMNA IZQUIERDA: SIDEBAR DE CARÁTULA */
+/* ==========================================
+   COLUMNA IZQUIERDA: CARÁTULA CON EFECTO FLOTANTE SUAVE
+   ========================================== */
 .sidebar-caratula {
-    background: var(--card-bg);
-    backdrop-filter: blur(12px);
-    border: 2px solid rgba(192, 132, 252, 0.3);
-    border-radius: 24px;
-    padding: 25px;
-    box-shadow: var(--sombra-aesthetic);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(253, 232, 245, 0.95));
+    backdrop-filter: blur(15px);
+    border: 3px solid rgba(244, 114, 182, 0.5);
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(217, 70, 239, 0.22);
     position: sticky;
-    top: 20px;
+    top: 25px;
     text-align: center;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.sidebar-caratula:hover {
+    transform: translateY(-5px); /* Efecto flotante suave hacia arriba */
+    box-shadow: 0 28px 60px rgba(236, 72, 153, 0.4), 0 0 35px rgba(244, 114, 182, 0.6);
+    border-color: var(--rosa-pastel);
 }
 
 .logo-container {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .logo-colegio {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     object-fit: contain;
     border-radius: 50%;
     background: #ffffff;
-    padding: 6px;
-    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.2);
-    border: 2px dashed var(--lila-claro);
+    padding: 8px;
+    box-shadow: 0 8px 25px rgba(147, 51, 234, 0.3);
+    border: 3px dashed var(--rosa-suave);
+    transition: transform 0.3s ease;
+}
+
+.logo-colegio:hover {
+    transform: rotate(10deg) scale(1.05);
 }
 
 .info-institucion h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
+    font-style: italic;
+    font-size: 1.3rem;
     color: var(--lila-principal);
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .badge-curso {
-    background: linear-gradient(135deg, #f472b6, #c084fc);
+    background: linear-gradient(135deg, #ec4899, #a855f7);
     color: white;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     font-weight: 700;
-    padding: 4px 12px;
+    padding: 6px 16px;
     border-radius: 50px;
     display: inline-block;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
 }
 
 .linea-decorativa {
     border: none;
-    height: 1px;
-    background: rgba(192, 132, 252, 0.3);
-    margin: 12px 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(244, 114, 182, 0.6), transparent);
+    margin: 15px 0;
 }
 
 .info-institucion p {
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     color: #4b5563;
-    margin: 5px 0;
+    margin: 7px 0;
     text-align: left;
+    font-style: italic;
 }
 
 /* CAJA DE VIDEO EN EL SIDEBAR */
 .sidebar-video-box {
-    margin-top: 25px;
+    margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px dashed rgba(192, 132, 252, 0.4);
+    border-top: 2px dashed rgba(244, 114, 182, 0.4);
     text-align: center;
 }
 
 .sidebar-video-box h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
+    font-style: italic;
+    font-size: 1.15rem;
     color: var(--lila-principal);
     margin-bottom: 8px;
 }
 
 .sidebar-video-box p {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: #6b7280;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     text-align: center;
 }
 
@@ -120,20 +238,21 @@ body {
     background: linear-gradient(135deg, #ec4899, #9333ea);
     color: white;
     font-family: 'Quicksand', sans-serif;
-    font-size: 0.95rem;
+    font-style: italic;
+    font-size: 1rem;
     font-weight: 700;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.35);
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
     transition: all 0.3s ease;
     width: 100%;
 }
 
 .btn-epico:hover {
-    transform: scale(1.04);
-    box-shadow: 0 10px 25px rgba(147, 51, 234, 0.45);
+    transform: scale(1.06);
+    box-shadow: 0 12px 30px rgba(147, 51, 234, 0.6), 0 0 20px #f472b6;
     background: linear-gradient(135deg, #db2777, #7e22ce);
 }
 
@@ -141,153 +260,260 @@ body {
 .main-content {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
 }
 
-/* HEADER DEL TEMA */
+/* HEADER DEL TEMA CON LEVITACIÓN SUAVE */
 .header-tema {
-    background: var(--card-bg);
-    backdrop-filter: blur(12px);
-    border: 2px solid rgba(192, 132, 252, 0.3);
-    border-radius: 24px;
-    padding: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(252, 231, 243, 0.95));
+    backdrop-filter: blur(15px);
+    border: 3px solid rgba(244, 114, 182, 0.4);
+    border-radius: 28px;
+    padding: 35px;
     box-shadow: var(--sombra-aesthetic);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.header-tema:hover {
+    transform: translateY(-5px); /* Levitación suave */
+    box-shadow: 0 28px 55px rgba(236, 72, 153, 0.35), 0 0 35px rgba(244, 114, 182, 0.5);
 }
 
 .tag-subtema {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--rosa-pastel);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     display: inline-block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .titulo-gigante {
     font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
+    font-style: italic;
+    font-size: 3.2rem;
     color: var(--lila-principal);
     font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(147, 51, 234, 0.15);
-    margin-bottom: 8px;
+    text-shadow: 3px 3px 8px rgba(147, 51, 234, 0.2);
+    margin-bottom: 10px;
     line-height: 1.1;
 }
 
 .descripcion-tema {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: #4b5563;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-style: italic;
 }
 
 /* CONTENEDOR DEL VIDEO DESPLEGABLE */
 .video-container-oculto {
     display: none;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
     animation: fadeIn 0.5s ease;
     background: #000;
+    border: 3px solid var(--rosa-suave);
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
+    from { opacity: 0; transform: translateY(-12px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* TARJETAS AESTHETIC DE CONTENIDO */
+/* ==========================================
+   TARJETAS AESTHETIC CON EFECTO DE LEVITACIÓN SUAVE Y LUZ
+   ========================================== */
 .tarjeta-aesthetic {
     background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border-radius: 24px;
-    padding: 30px;
+    backdrop-filter: blur(12px);
+    border-radius: 28px;
+    padding: 35px;
     box-shadow: var(--sombra-aesthetic);
-    border-left: 7px solid var(--rosa-pastel);
-    border-top: 1px solid rgba(255, 255, 255, 0.8);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 8px solid var(--rosa-pastel);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+/* EFECTO DE LUZ INTERNA */
+.tarjeta-aesthetic::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tarjeta-aesthetic:hover::before {
+    opacity: 0.8;
+}
+
+.tarjeta-aesthetic > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* EFECTO HOVER: LEVITACIÓN SUAVE Y ELEGANTE */
 .tarjeta-aesthetic:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 40px rgba(147, 51, 234, 0.18);
+    transform: translateY(-8px); /* Elección perfecta de levitación suave */
+    box-shadow: 0 30px 60px rgba(236, 72, 153, 0.38), 0 0 45px rgba(244, 114, 182, 0.6);
+    border-color: var(--rosa-suave);
 }
 
 .tarjeta-aesthetic h2 {
     font-family: 'Playfair Display', serif;
+    font-style: italic;
     color: var(--lila-principal);
-    font-size: 1.5rem;
-    margin-bottom: 12px;
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(147, 51, 234, 0.15);
 }
 
 .tarjeta-aesthetic p {
-    line-height: 1.7;
-    font-size: 1rem;
-    color: #4b5563;
-    margin-bottom: 12px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-style: italic;
 }
 
 .lista-detalles {
-    padding-left: 20px;
-    margin: 12px 0;
+    padding-left: 22px;
+    margin: 15px 0;
 }
 
 .lista-detalles li {
-    font-size: 0.98rem;
-    color: #4b5563;
-    margin-bottom: 8px;
-    line-height: 1.5;
+    font-size: 1.02rem;
+    color: #2d3748;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-style: italic;
 }
 
 /* CAJA DE FÓRMULAS */
 .formula-card {
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(192, 132, 252, 0.08));
-    border: 2px dashed rgba(192, 132, 252, 0.5);
-    border-radius: 14px;
-    padding: 16px;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(192, 132, 252, 0.12));
+    border: 2px dashed rgba(244, 114, 182, 0.7);
+    border-radius: 16px;
+    padding: 18px;
     text-align: center;
-    margin: 15px 0;
+    margin: 18px 0;
+    box-shadow: inset 0 2px 10px rgba(236, 72, 153, 0.15);
 }
 
 .formula-card code {
     font-family: 'Quicksand', sans-serif;
-    font-size: 1.1rem;
+    font-style: italic;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--lila-principal);
 }
 
-/* ESTILOS PARA LAS IMÁGENES INTEGRADAS */
+/* ==========================================
+   ESTILOS DE IMÁGENES CON ZOOM AL HACER CLIC
+   ========================================== */
 .image-container {
-    background: rgba(253, 242, 248, 0.7);
-    border: 2px solid rgba(244, 114, 182, 0.3);
-    border-radius: 16px;
-    padding: 15px;
+    background: rgba(253, 242, 248, 0.9);
+    border: 2px solid rgba(244, 114, 182, 0.5);
+    border-radius: 20px;
+    padding: 18px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 22px;
+    transition: all 0.3s ease;
+}
+
+.image-container:hover {
+    background: rgba(252, 231, 243, 1);
+    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.25);
 }
 
 .img-contenido {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 8px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.img-contenido:hover {
+    transform: scale(1.02);
+    filter: brightness(1.06);
 }
 
 .img-caption {
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     font-weight: 600;
     color: #db2777;
     margin: 0;
+    font-style: italic;
+}
+
+/* VENTANA MODAL (LIGHTBOX) PARA VER LA IMAGEN EN GRANDE */
+.modal-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 10, 30, 0.85);
+    backdrop-filter: blur(8px);
+    text-align: center;
+}
+
+.modal-content-img {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(244, 114, 182, 0.6);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    color: #fff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--rosa-suave);
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    margin-top: 40px;
-    font-size: 0.88rem;
-    color: #9ca3af;
+    margin-top: 50px;
+    font-size: 0.95rem;
+    color: #4b5563;
     grid-column: 1 / -1;
+    font-style: italic;
 }
 
 /* RESPONSIVE DESIGN PARA MÓVILES */
@@ -297,5 +523,8 @@ footer {
     }
     .sidebar-caratula {
         position: static;
+    }
+    .titulo-gigante {
+        font-size: 2.4rem;
     }
 }
