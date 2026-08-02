@@ -1,0 +1,301 @@
+/* ESTILOS AESTHETIC DE DOS COLUMNAS - DISEÑO ÚNICO PARA NAIMA */
+:root {
+    --bg-gradient: linear-gradient(135deg, #fdf4f8 0%, #fae8ff 50%, #f3e8ff 100%);
+    --rosa-pastel: #ec4899;
+    --lila-principal: #9333ea;
+    --lila-claro: #c084fc;
+    --texto-color: #374151;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --sombra-aesthetic: 0 15px 35px rgba(147, 51, 234, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--texto-color);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* DISTRIBUCIÓN DE DOS COLUMNAS (DASHBOARD LAYOUT) */
+.layout-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* COLUMNA IZQUIERDA: SIDEBAR DE CARÁTULA */
+.sidebar-caratula {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(192, 132, 252, 0.3);
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: var(--sombra-aesthetic);
+    position: sticky;
+    top: 20px;
+    text-align: center;
+}
+
+.logo-container {
+    margin-bottom: 15px;
+}
+
+.logo-colegio {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #ffffff;
+    padding: 6px;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.2);
+    border: 2px dashed var(--lila-claro);
+}
+
+.info-institucion h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--lila-principal);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.badge-curso {
+    background: linear-gradient(135deg, #f472b6, #c084fc);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.linea-decorativa {
+    border: none;
+    height: 1px;
+    background: rgba(192, 132, 252, 0.3);
+    margin: 12px 0;
+}
+
+.info-institucion p {
+    font-size: 0.88rem;
+    color: #4b5563;
+    margin: 5px 0;
+    text-align: left;
+}
+
+/* CAJA DE VIDEO EN EL SIDEBAR */
+.sidebar-video-box {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(192, 132, 252, 0.4);
+    text-align: center;
+}
+
+.sidebar-video-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--lila-principal);
+    margin-bottom: 8px;
+}
+
+.sidebar-video-box p {
+    font-size: 0.82rem;
+    color: #6b7280;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.btn-epico {
+    background: linear-gradient(135deg, #ec4899, #9333ea);
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.35);
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-epico:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(147, 51, 234, 0.45);
+    background: linear-gradient(135deg, #db2777, #7e22ce);
+}
+
+/* COLUMNA DERECHA: CONTENIDO PRINCIPAL */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* HEADER DEL TEMA */
+.header-tema {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(192, 132, 252, 0.3);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: var(--sombra-aesthetic);
+}
+
+.tag-subtema {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--rosa-pastel);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.titulo-gigante {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: var(--lila-principal);
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(147, 51, 234, 0.15);
+    margin-bottom: 8px;
+    line-height: 1.1;
+}
+
+.descripcion-tema {
+    font-size: 1.05rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* CONTENEDOR DEL VIDEO DESPLEGABLE */
+.video-container-oculto {
+    display: none;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease;
+    background: #000;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* TARJETAS AESTHETIC DE CONTENIDO */
+.tarjeta-aesthetic {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: var(--sombra-aesthetic);
+    border-left: 7px solid var(--rosa-pastel);
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-aesthetic:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(147, 51, 234, 0.18);
+}
+
+.tarjeta-aesthetic h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--lila-principal);
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.tarjeta-aesthetic p {
+    line-height: 1.7;
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 12px;
+}
+
+.lista-detalles {
+    padding-left: 20px;
+    margin: 12px 0;
+}
+
+.lista-detalles li {
+    font-size: 0.98rem;
+    color: #4b5563;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* CAJA DE FÓRMULAS */
+.formula-card {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(192, 132, 252, 0.08));
+    border: 2px dashed rgba(192, 132, 252, 0.5);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.formula-card code {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--lila-principal);
+}
+
+/* ESTILOS PARA LAS IMÁGENES INTEGRADAS */
+.image-container {
+    background: rgba(253, 242, 248, 0.7);
+    border: 2px solid rgba(244, 114, 182, 0.3);
+    border-radius: 16px;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.img-contenido {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 8px;
+}
+
+.img-caption {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #db2777;
+    margin: 0;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.88rem;
+    color: #9ca3af;
+    grid-column: 1 / -1;
+}
+
+/* RESPONSIVE DESIGN PARA MÓVILES */
+@media (max-width: 900px) {
+    .layout-dashboard {
+        grid-template-columns: 1fr;
+    }
+    .sidebar-caratula {
+        position: static;
+    }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Académico - Naima Leon | Leyes de Kirchhoff</title>
+    <!-- Enlace a la hoja de estilos -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts Aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- CONTENEDOR PRINCIPAL CON DISEÑO DE DOS COLUMNAS -->
+    <div class="layout-dashboard">
+
+        <!-- COLUMNA IZQUIERDA: CARÁTULA Y MENÚ LATERAL -->
+        <aside class="sidebar-caratula">
+            <div class="logo-container">
+                <!-- Logo oficial proporcionado -->
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbFqQuORJhdVCGHpQr7yN6OT-iblvARywRM2IZUDqOpJRKYdvi04j-1uo&s=10" alt="Logo U.E. Carmen Mora de Encalada" class="logo-colegio">
+            </div>
+            
+            <div class="info-institucion">
+                <h2>U.E. "Carmen Mora de Encalada"</h2>
+                <span class="badge-curso">2do de Informática B </span>
+                <hr class="linea-decorativa">
+                <p><strong>Estudiante:</strong> Leon Maldonado Naima Nailet</p>
+                <p><strong>Docente:</strong> Lic. Patricio Medina</p>
+                <p><strong>Módulo:</strong> Soporte Técnico </p>
+            </div>
+
+            <!-- SECCIÓN DEL BOTÓN ÉPICO PARA EL VIDEO EN EL SIDEBAR -->
+            <div class="sidebar-video-box">
+                <h3>Explicación Visual</h3>
+                <p>Haz clic para desplegar el contenido multimedia de la clase:</p>
+                <button id="btnVideoEpico" class="btn-epico">
+                    Ver Video Explicativo
+                </button>
+            </div>
+        </aside>
+
+        <!-- COLUMNA DERECHA: CONTENIDO PRINCIPAL Y TEMA GRANDE -->
+        <main class="main-content">
+            
+            <!-- CABECERA DEL TEMA -->
+            <header class="header-tema">
+                <span class="tag-subtema">Portafolio Exclusivo de Electrónica</span>
+                <h1 class="titulo-gigante">Leyes de Kirchhoff</h1>
+                <p class="descripcion-tema">Análisis detallado de circuitos eléctricos en paralelo, nodos, mallas y el comportamiento de la corriente y la tensión en los sistemas electrónicos.</p>
+            </header>
+
+            <!-- CONTENEDOR DEL VIDEO DESPLEGABLE (OCULTO INICIALMENTE) -->
+            <div id="videoContainerModal" class="video-container-oculto">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Leyes de Kirchhoff" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <!-- TARJETA 1: CIRCUITOS EN PARALELO Y RAMAS -->
+            <section class="tarjeta-aesthetic">
+                <h2>1. Circuitos con Ramificaciones (En Paralelo)</h2>
+                <p>En el estudio de la electrónica y el análisis de redes, los circuitos en paralelo representan una estructura fundamental donde los componentes se conectan de manera que los terminales de cada elemento comparten los mismos nodos de unión.</p>
+                <p>Una fuente de alimentación suministra la energía necesaria para que la corriente se distribuya a través de múltiples caminos independientes o ramificaciones.</p>
+                
+                <ul class="lista-detalles">
+                    <li><strong>Voltaje Constante:</strong> La principal característica es que la diferencia de potencial o voltaje es exactamente la misma en todas las ramas conectadas en paralelo.</li>
+                    <li><strong>División de Corriente:</strong> La corriente eléctrica total suministrada por la fuente se reparte de manera inversa a la resistencia de cada camino.</li>
+                    <li><strong>Independencia Operativa:</strong> Si una de las ramas sufre una apertura o falla, los demás trayectos del circuito continúan funcionando con absoluta normalidad.</li>
+                </ul>
+
+                <!-- Imagen integrada de Nodos y ramas en circuito en paralelo -->
+                <div class="image-container">
+                    <img src="https://electricidad-basica.com/wp-content/uploads/2023/09/Nodos-y-ramas-en-un-circuito-en-paralelo.jpg.webp" alt="Esquema de Nodos y ramas en un circuito en paralelo" class="img-contenido">
+                    <p class="img-caption">Esquema visual de nodos y ramas en un circuito en paralelo.</p>
+                </div>
+            </section>
+
+            <!-- TARJETA 2: PRIMERA LEY DE KIRCHHOFF (NODOS) -->
+            <section class="tarjeta-aesthetic">
+                <h2>2. Primera Ley de Kirchhoff (Ley de Corrientes o de Nodos)</h2>
+                <p>La Primera Ley de Kirchhoff se fundamenta directamente en el principio físico de la conservación de la carga eléctrica. Establece que en cualquier nodo o punto de unión de un circuito eléctrico, la suma algebraica de todas las intensidades de corriente que entran debe ser exactamente igual a la suma de las corrientes que salen.</p>
+                
+                <div class="formula-card">
+                    <code>Suma de Corrientes Entrantes = Suma de Corrientes Salientes</code>
+                </div>
+
+                <p>Para comprenderlo de manera práctica, imaginemos una intersección de tuberías: toda el agua que llega a un punto debe salir obligatoriamente por las otras direcciones sin acumularse. De igual forma, si a un nodo ingresan determinadas corrientes, la suma de las salidas debe equilibrar exactamente el total en el sistema.</p>
+
+                <!-- Imagen integrada de Circuito con 4 Nodos -->
+                <div class="image-container">
+                    <img src="https://mielectronicafacil.com/wp-content/uploads/2019/10/Circuito-con-4-Nodos.png" alt="Ejemplo de circuito con 4 nodos" class="img-contenido">
+                    <p class="img-caption">Diagrama representativo de un circuito analizado mediante 4 nodos.</p>
+                </div>
+            </section>
+
+            <!-- TARJETA 3: SEGUNDA LEY DE KIRCHHOFF (MALLAS) -->
+            <section class="tarjeta-aesthetic">
+                <h2>3. Segunda Ley de Kirchhoff (Ley de Tensiones o de Mallas)</h2>
+                <p>La Segunda Ley de Kirchhoff está sustentada en el principio fundamental de la conservación de la energía. Esta ley determina que en cualquier trayectoria cerrada o bucle (malla) de un circuito eléctrico, la suma algebraica de todas las tensiones suministradas por las fuentes es exactamente igual a la suma de las caídas de potencial producidas en cada una de las resistencias.</p>
+                
+                <div class="formula-card">
+                    <code>Suma de Voltajes de Fuentes = Suma de Caídas de Tensión en Componentes</code>
+                </div>
+
+                <p>En términos prácticos, esto significa que la energía que un electrón gana al atravesar una fuente de alimentación se consume por completo al recorrer los diferentes elementos pasivos del circuito cerrado antes de regresar al punto de partida.</p>
+
+                <!-- Imagen integrada de análisis de mallas -->
+                <div class="image-container">
+                    <img src="https://cdn.kastatic.org/ka-perseus-images/1e11477a94abdb9c8b8768f103cdb598fe9b5583.svg" alt="Diagrama de mallas y trayectorias cerradas" class="img-contenido">
+                    <p class="img-caption">Representación gráfica de mallas y trayectorias cerradas de tensión.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Hecho por: Naima Leon &copy; 2026</p>
+    </footer>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
